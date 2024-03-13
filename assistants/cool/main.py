@@ -1,10 +1,10 @@
 import os
 from embedchain import Pipeline as App
 
-os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
+os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "<some_hf_token>"
 os.environ["HF_HUB_CACHE"] = "/home/shaun/.cache/huggingface/hub"
 os.environ["PYTORCH_PRETRAINED_BERT_CACHE"] = "/home/shaun/.cache/torch/transformers"
-#os.environ["OPENAI_API_KEY"] = "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"
+#os.environ["OPENAI_API_KEY"] = "<some_open_ai_key>"
 
 app = App.from_config(yaml_path="config.yaml")
 app.add("https://www.forbes.com/profile/elon-musk", data_type='web_page')
