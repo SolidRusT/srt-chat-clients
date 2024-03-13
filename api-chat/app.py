@@ -1,5 +1,6 @@
 import requests
 
+
 # Function to make a generic request to the BEA API and return parsed JSON data
 def query_bea_api(api_key, dataset, params):
     base_url = "https://apps.bea.gov/api/data"
@@ -8,7 +9,7 @@ def query_bea_api(api_key, dataset, params):
         "method": "GetData",
         "DataSetName": dataset,
         "ResultFormat": "JSON",
-        **params
+        **params,
     }
     response = requests.get(base_url, params=parameters)
     if response.status_code == 200:
@@ -17,14 +18,33 @@ def query_bea_api(api_key, dataset, params):
         print("Error fetching data:", response.status_code)
         return None
 
+
 # Function to display the data
 def display_data(data):
-    if data:
-        try:
-            for item in data["BEAAPI"]["Results"]["Data"]:
-                print(f"{item['GeoName']} ({item['TimePeriod']}): {item['DataValue']} {item.get('CL_UNIT', '')}")
-        except KeyError as e:
-            print("Failed to parse data. Missing key:", e)
+    try:
+        # Navigate to the 'Results' section and then the 'Data' key
+        results = data.get("BEAAPI", {}).get("Results", {})
+        data_items = results.get("Data", [])
+
+        # Check if 'Data' is found; if not, look for a more specific error message
+        if not data_items:
+            if "Error" in results:
+                error_info = results["Error"]
+                print(
+                    f"Error {error_info.get('APIErrorCode')}: {error_info.get('APIErrorDescription')}"
+                )
+            else:
+                print("No data found. Please check your parameters and try again.")
+            return
+
+        # If 'Data' is found, iterate and print each item
+        for item in data_items:
+            print(
+                f"{item.get('GeoName', 'N/A')} ({item.get('TimePeriod', 'N/A')}): {item.get('DataValue', 'N/A')} {item.get('CL_UNIT', '')}"
+            )
+    except KeyError as e:
+        print("Unexpected structure in data. Missing key:", e)
+
 
 # Main function to interact with the BEA API
 def main():
@@ -33,13 +53,14 @@ def main():
     params = {}
     while True:
         key = input("Enter parameter key (or 'done' to execute): ")
-        if key.lower() == 'done':
+        if key.lower() == "done":
             break
         value = input(f"Enter value for {key}: ")
         params[key] = value
 
     data = query_bea_api(api_key, dataset, params)
     display_data(data)
+
 
 if __name__ == "__main__":
     main()
