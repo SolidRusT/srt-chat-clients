@@ -1,6 +1,6 @@
 # Chat with BEA API
 
-Example of how to chat with an API
+This repo aims to provide a NLP interface to the Bureau of Economic Analysis (BEA) API.
 
 This procedure assumes you have obtained your API key by registering at the BEA website.
 
