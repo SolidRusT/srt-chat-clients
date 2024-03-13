@@ -4,7 +4,8 @@ import requests
 # Load API keys from environment variables
 bea_api_key = os.getenv('BEA_API_KEY')
 openai_api_key = os.getenv('OPENAI_API_KEY')
-openai_api_url = os.getenv('OPENAI_API_URL', 'https://api.openai.com')
+#openai_api_url = os.getenv('OPENAI_API_URL', 'http://hades:8000')
+openai_api_url = 'https://api.openai.com'
 
 if not bea_api_key or not openai_api_key:
     print("One or more API keys are missing.")
