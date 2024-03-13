@@ -1,36 +1,45 @@
 import requests
 
-# Function to get data from BEA API
-def get_bea_data(api_key, dataset_name, year="2020", geo_fips="STATE"):
+# Function to make a generic request to the BEA API and return parsed JSON data
+def query_bea_api(api_key, dataset, params):
     base_url = "https://apps.bea.gov/api/data"
-    params = {
+    parameters = {
         "UserID": api_key,
         "method": "GetData",
-        "DataSetName": dataset_name,
-        "Year": year,
-        "GeoFIPS": geo_fips,
-        "ResultFormat": "JSON"
+        "DataSetName": dataset,
+        "ResultFormat": "JSON",
+        **params
     }
-    response = requests.get(base_url, params=params)
+    response = requests.get(base_url, params=parameters)
     if response.status_code == 200:
         return response.json()
     else:
+        print("Error fetching data:", response.status_code)
         return None
 
-# Main CLI interface
+# Function to display the data
+def display_data(data):
+    if data:
+        try:
+            for item in data["BEAAPI"]["Results"]["Data"]:
+                print(f"{item['GeoName']} ({item['TimePeriod']}): {item['DataValue']} {item.get('CL_UNIT', '')}")
+        except KeyError as e:
+            print("Failed to parse data. Missing key:", e)
+
+# Main function to interact with the BEA API
 def main():
     api_key = input("Enter your BEA API key: ")
-    dataset_name = input("Enter the dataset name (e.g., 'NIPA'): ")
-    year = input("Enter the year for the data (e.g., '2020'): ")
-    geo_fips = input("Enter the geographic area (e.g., 'STATE' for all states): ")
-    
-    data = get_bea_data(api_key, dataset_name, year, geo_fips)
-    if data:
-        # Assuming the data structure, you'll need to adjust according to the actual API response
-        for item in data['BEAAPI']['Results']['Data']:
-            print(f"{item['GeoName']} ({item['TimePeriod']}): {item['DataValue']}")
-    else:
-        print("Failed to retrieve data.")
+    dataset = input("Enter the dataset name (e.g., 'NIPA', 'Regional'): ")
+    params = {}
+    while True:
+        key = input("Enter parameter key (or 'done' to execute): ")
+        if key.lower() == 'done':
+            break
+        value = input(f"Enter value for {key}: ")
+        params[key] = value
+
+    data = query_bea_api(api_key, dataset, params)
+    display_data(data)
 
 if __name__ == "__main__":
     main()
