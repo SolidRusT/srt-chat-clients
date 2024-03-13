@@ -47,11 +47,17 @@ def explore_parameter_values(api_key, dataset_name, parameter_name):
     }
     response = requests.get(url, params=params)
     if response.status_code == 200:
-        values = response.json()['BEAAPI']['Results']['ParamValue']
-        return values
+        try:
+            values = response.json()['BEAAPI']['Results']['ParamValue']
+            for value in values:
+                # Adaptively print based on available keys
+                key = value.get('Key', value.get('KeyCode', 'N/A'))
+                desc = value.get('Desc', value.get('Description', 'No description available'))
+                print(f"- {key}: {desc}")
+        except KeyError as e:
+            print(f"Failed to parse values for parameter {parameter_name} in dataset {dataset_name}. Unexpected structure: {e}")
     else:
         print(f"Error fetching values for parameter {parameter_name} in dataset {dataset_name}:", response.status_code)
-        return None
 
 # Main script
 api_key = os.getenv('BEA_API_KEY')
