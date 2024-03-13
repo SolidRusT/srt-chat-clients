@@ -1,0 +1,10 @@
+https://python.langchain.com/docs/integrations/retrievers/embedchain
+https://huggingface.co/docs/huggingface_hub/guides/manage-cache
+https://www.youtube.com/watch?v=OzF8H_oXAK4
+https://python.langchain.com/docs/integrations/chat/huggingface#huggingfaceendpoint
+https://docs.embedchain.ai/components/llms#hugging-face
+https://docs.embedchain.ai/get-started/quickstart#open-source-models
+https://docs.embedchain.ai/get-started/deployment
+
+# Bonus:
+https://huggingface.co/chat/assistants

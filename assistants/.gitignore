@@ -1,0 +1,4 @@
+# local dev environments
+**/venv-*
+__pycache__/*
+logs/*
