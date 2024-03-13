@@ -1,0 +1,12 @@
+streamlit
+text_generation
+langchain
+torch
+tensorflow
+openai
+transformers
+duckduckgo-search
+markdownlit
+wikipedia
+#gradio
+#huggingface_hub
