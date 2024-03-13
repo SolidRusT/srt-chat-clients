@@ -4,6 +4,33 @@ This repo aims to provide a NLP interface to the Bureau of Economic Analysis (BE
 
 This procedure assumes you have obtained your API key by registering at the BEA website.
 
+## Requirements
+
+- Python 3.11+
+- US Bureau of Economic Analysis API Key
+- OpenAI API Key or compatible endpoint
+
+## Installation
+
+Make a python virtual environment, then activate it.
+
+```bash
+python -m venv ~/venv-api-chat
+source ~/venv-api-chat/bin/activate
+```
+
+Install python requirements.
+
+```bash
+pip install --upgrade -r requirements.txt
+```
+
+Run the application.
+
+```bash
+python app.py
+```
+
 ### Functional Testing Procedure
 
 #### 1. Testing with the "NIPA" Dataset
