@@ -1,0 +1,5 @@
+chromadb
+transformers
+mistralai
+gradio
+torch

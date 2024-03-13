@@ -1,0 +1,16 @@
+# Core Frameworks
+crewai
+langchain
+langchain-community
+# Template Engine
+PyYAML
+# OpenAI API
+openai
+langchain-openai
+# Text Generation Inference (TGI)
+text-generation
+# Agent Tools
+duckduckgo-search
+wikipedia
+# Optional GUI
+PySide6

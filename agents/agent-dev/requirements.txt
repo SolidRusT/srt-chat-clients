@@ -1,0 +1,6 @@
+streamlit
+pyautogen
+spyder
+conda-repo-cli
+python-lsp-black
+metagpt

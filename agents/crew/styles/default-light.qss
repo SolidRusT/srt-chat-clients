@@ -1,0 +1,64 @@
+/* lightmode.qss */
+
+QMainWindow {
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+QLabel, QToolBar, QStatusBar {
+    color: #2e2e2e; /* Darker text for readability */
+}
+
+QPushButton {
+    background-color: #e6e6e6;
+    border: 1px solid #cfcfcf;
+    color: #2e2e2e;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+QPushButton:hover {
+    background-color: #dcdcdc;
+}
+
+QLineEdit, QTextEdit {
+    background-color: #ffffff;
+    color: #2e2e2e;
+    border: 1px solid #cfcfcf;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background-color: #e6e6e6;
+    width: 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #cfcfcf;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #bfbfbf;
+}
+
+QToolBar {
+    background-color: #e6e6e6;
+    border: none;
+    spacing: 3px;
+}
+
+QToolBar QLabel,
+QToolBar QToolButton {
+    color: #2e2e2e;
+    font-weight: bold;
+}
+
+QToolButton { 
+    color: #2e2e2e;
+    font-weight: bold;
+}
+
+/* Add more styles as needed */
