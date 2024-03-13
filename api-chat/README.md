@@ -51,3 +51,18 @@ This procedure assumes you have obtained your API key by registering at the BEA 
 ### Final Note
 
 This structured approach will help you validate the functionality and robustness of your application across different use cases. As you test, you might find areas for improvement or expansion, such as adding more descriptive prompts, improving the parsing of complex data structures, or enhancing error messages for a better user experience.
+
+
+## Other shit
+
+```plaintext
+Enter dataset name: Regional
+Enter parameter key: method
+Enter value for method: GetParameterValues
+Enter parameter key: ParameterName
+Enter value for ParameterName: TableName
+```
+
+```bash
+export BEA_API_KEY='your_actual_bea_api_key'
+```

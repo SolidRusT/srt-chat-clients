@@ -30,18 +30,19 @@ def display_data(data):
         if not data_items:
             if "Error" in results:
                 error_info = results["Error"]
-                print(
-                    f"Error {error_info.get('APIErrorCode')}: {error_info.get('APIErrorDescription')}"
-                )
+                print(f"Error {error_info.get('APIErrorCode')}: {error_info.get('APIErrorDescription')}")
             else:
                 print("No data found. Please check your parameters and try again.")
             return
 
         # If 'Data' is found, iterate and print each item
         for item in data_items:
-            print(
-                f"{item.get('GeoName', 'N/A')} ({item.get('TimePeriod', 'N/A')}): {item.get('DataValue', 'N/A')} {item.get('CL_UNIT', '')}"
-            )
+            # Attempt to include a descriptive label for each data row
+            description = item.get('LineDescription', 'Data Description Unavailable')
+            value = item.get('DataValue', 'N/A')
+            unit = item.get('CL_UNIT', '')
+            period = item.get('TimePeriod', 'N/A')
+            print(f"{description} ({period}): {value} {unit}")
     except KeyError as e:
         print("Unexpected structure in data. Missing key:", e)
 
