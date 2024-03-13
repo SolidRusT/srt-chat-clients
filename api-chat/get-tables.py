@@ -1,4 +1,12 @@
+import os
 import requests
+
+# Retrieve API key from environment variable
+api_key = os.getenv('BEA_API_KEY')
+# Quit if there is no key
+if not api_key:
+    print("API key not found. Please set the BEA_API_KEY environment variable.")
+    exit(1)
 
 def get_parameter_values(api_key):
     base_url = "https://apps.bea.gov/api/data"
@@ -20,5 +28,4 @@ def get_parameter_values(api_key):
     else:
         print("Error fetching data:", response.status_code)
 
-api_key = "<your_api_key_here>"  # Replace <your_api_key_here> with your actual API key
 get_parameter_values(api_key)
