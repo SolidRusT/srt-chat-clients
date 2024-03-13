@@ -10,6 +10,8 @@ if not bea_api_key or not openai_api_key:
     print("One or more API keys are missing.")
     exit(1)
 
+# At the beginning of your script, load the OpenAI API URL environment variable
+openai_api_url = os.getenv('OPENAI_API_URL', 'https://api.openai.com/v1') # Default to the real OpenAI URL if not specified
 openai.api_key = openai_api_key
 
 def query_openai(question):
