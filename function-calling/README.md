@@ -4,10 +4,20 @@ This repository contains the code for perfoming function calling with SRT infere
 
 ## Installation
 
-To install the required packages, run the following command:
+To prepare your python environment, run the following commands:
 
 ```bash
-pip install -r requirements.txt
+python -m venv ~/venv-srt-function-calling
+source ~/venv-srt-function-calling/bin/activate
+pip install packaging
+pip install wheel
+pip install torch
+```
+
+Then, install the required package versions for the project:
+
+```bash
+pip install --upgrade -r requirements.txt
 ```
 
 ## Usage
