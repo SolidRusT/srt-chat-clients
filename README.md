@@ -20,6 +20,7 @@ As we have migrated to Ansible and primarily use a `systemd` service template in
  - [Launch](./launch.sh) is intended to be called by Launch ALL, but can be used to launch a specific chat app.
  - [Launch Custom](./launch-custom.sh) is intended to launch clients using attitional parameters. It was made to enable developing a newer pattern of client (gradio).
  - [Launch Chat](./launch-chat.sh) was an earlier version of Launch Custom, that was used before migration to ansible.
+ - [Terminate](./terminate.sh) kill all running caht clients (by way of nuking all screen sessions).
 
 ## Libraries
 
