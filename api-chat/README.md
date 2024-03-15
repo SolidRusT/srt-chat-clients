@@ -1,13 +1,14 @@
-# Chat with BEA API
+# Chat with API
 
-This repo aims to provide a NLP interface to the Bureau of Economic Analysis (BEA) API.
+This repo aims to provide a NLP interface to the Bureau of Economic Analysis (BEA) API, and the Bureau of Labour Satistics (BLS) API.
 
-This procedure assumes you have obtained your API key by registering at the BEA website.
+This procedure assumes you have obtained your API keys by registering at the BEA and BLS websites.
 
 ## Requirements
 
 - Python 3.11+
 - US Bureau of Economic Analysis API Key
+- US Bureau of Labour Satistics API Key
 - OpenAI API Key or compatible endpoint
 
 ## Installation
