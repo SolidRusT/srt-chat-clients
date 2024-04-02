@@ -1,7 +1,7 @@
 import openai
 
 openai.api_key = "sk-not-required"
-openai.base_url = "http://hades:8091/v1/"
+openai.base_url = "http://hades:5000/v1/"
 openai.default_headers = {"x-foo": "true"}
 
 completion = openai.chat.completions.create(
