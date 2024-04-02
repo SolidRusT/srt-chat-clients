@@ -9,7 +9,13 @@ completion = openai.chat.completions.create(
   messages=[
     {"role": "system", "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
     {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
-  ]
+  ],
+  temperature=0.8,
+  max_tokens=256,
+  top_p=0.5,
+  n=3,
+  frequency_penalty=0.6,
+  presence_penalty=0.8
 )
 
 print(completion.choices[0].message)
