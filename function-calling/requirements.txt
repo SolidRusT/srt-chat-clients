@@ -1,8 +1,8 @@
-torch==2.1.2
-transformers==4.38.2
+torch==2.7.0
+transformers==4.50.0
 bitsandbytes>=0.41.1
 accelerate==0.27.2
-langchain==0.1.11
+langchain==0.2.5
 pydantic==2.6.2
 jsonschema==4.21.1
 yfinance==0.2.36
