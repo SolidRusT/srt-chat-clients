@@ -1,7 +1,7 @@
 # Preinstall requirements from TTS 
 TTS @ git+https://github.com/coqui-ai/TTS@v0.21.3
 pydantic==1.10.13
-python-multipart==0.0.7
+python-multipart==0.0.18
 typing-extensions>=4.8.0
 cutlet
 mecab-python3==1.0.6
@@ -16,4 +16,4 @@ gradio_client
 emoji
 asyncio
 noisereduce==3.0.0
-gradio==4.19.2
+gradio==5.31.0
