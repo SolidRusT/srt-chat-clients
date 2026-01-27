@@ -1,4 +1,4 @@
 git+https://github.com/huggingface/transformers
 torch
 yt-dlp
-gradio==4.19.2
+gradio==5.31.0
